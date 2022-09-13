@@ -52,7 +52,7 @@ class Database
         if (mysqli_query($this->connect, $sql_query)) {
             return true;
         } else {
-            echo mysqli_error($this->connect);
+            return false;
         }
     }
 
