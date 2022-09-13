@@ -123,7 +123,7 @@
         var CACHE = "false";
         var hidden;
 
-
+        // Load Data From Database
         function loadData() {
             $.ajax({
                 url: URL,
@@ -162,7 +162,7 @@
                 }
             })
 
-            // Update Data In Database
+            // Get Specific Data From Database
             $(document).on('click', '#edit', function () {
                 $("#hidden").val("true");
                 $("#id").val($(this).attr("data-id"));
@@ -181,7 +181,7 @@
 
             })
 
-            // Insert Data Into Database
+            // Insert & Update Data Into Database
             $('#save_btn').on('click', () => {
                 var name = $('#name').val();
                 var age = $('#age').val();
@@ -235,38 +235,9 @@
                     });
                 }
             })
-
-            //Delete Data From Database
-
-
-            // $(document).on('click', '#delete', function () {
-            //     $.ajax({
-            //         url: "controller/data.php",
-            //         type: "post",
-            //         cache: false,
-            //         data: {
-            //             type: 4,
-            //             id: $(this).attr("data-id")
-            //         },
-            //         success: function (dataResult) {
-            //             var dataResult = JSON.parse(dataResult);
-            //             if (dataResult.statusCode == 200) {
-            //                 webToast.Success({
-            //                     status: '',
-            //                     message: 'Record Deleted!'
-            //                 });
-            //                 loadData();
-            //             } else if (dataResult.statusCode == 201) {
-            //                 webToast.Danger({
-            //                     status: '',
-            //                     message: 'Failed to Delete!'
-            //                 });
-            //             }
-            //         }
-            //     })
-
-            // })
         })
+
+        // Delete Data From Database
         function get_delete(id) {
             var confirmBox = webToast.confirm("Are you sure?");
             confirmBox.click(function () {
@@ -290,8 +261,6 @@
             });
         }
     </script>
-
-
 
 </body>
 
